@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Why
+APIの理解を深めるため、RailsのAPIモードを利用し、自作しようということで作ってみました。
 
-Things you may want to cover:
+# What
+麻雀の役を返すAPIです。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Format
+- name: 役のローマ字表記
+- char: 役の日本語表記
+- han: 役の翻数
+- exp: 役の説明
