@@ -15,6 +15,7 @@ class FormatsController < ApplicationController
 
   def show
     format = Format.find(params[:id])
+    error_check(format)
     @format = {
       name: format.name,
       char: format.char,
@@ -35,7 +36,11 @@ class FormatsController < ApplicationController
         exp: format.exp
       }
     end
-    render json: @formats
+    if @formats == []
+      raise StandardError, "該当する役がありません"
+    else
+      render json: @formats
+    end
   end
 
 end
