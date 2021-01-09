@@ -1,7 +1,44 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+formats = Format.create([
+  { name: 'ri-chi', char: '立直', han: 1 , exp: 'と宣言し、1000点棒を供託する'},
+  { name: 'tsumo', char: '自摸', han: 1 , exp: '門前で自摸のみで上がりの形を作る'},
+  { name: 'ippatsu', char: '一発', han: 1 , exp: '後一巡以内に自摸またはロン上がり'},
+  { name: 'tan-yao', char: '断么九', han: 1 , exp: '中張牌のみで上がりの形を作る'},
+  { name: 'pinhu', char: '平和', han: 1 , exp: '順子のみで、雀頭は役牌以外の両面待ち'},
+  { name: 'i-pe-ko-', char: '一盃口', han: 1 , exp: '同じ順子がふたつ'},
+  { name: 'sangen-hai', char: '三元牌', han: 1 , exp: '三元牌のいずれかが刻子'},
+  { name: 'kaze-hai', char: '風牌', han: 1 , exp: '自風牌もしくは場風牌の刻子'},
+  { name: 'chankan', char: '槍槓', han: 1 , exp: '他家が加槓したはいで上がる'},
+  { name: 'rinshankaihou', char: '嶺上開花', han: 1 , exp: '槓した際の嶺上牌で上がる'},
+  { name: 'haiteiraoyue', char: '海底撈月', han: 1 , exp: '海底牌で自摸上がる'},
+  { name: 'haiteiraoyui', char: '河底撈魚', han: 1 , exp: '海底牌でロン上がる'},
+  { name: 'daburi-', char: 'ダブル立直', han: 2, exp: '鳴きのない一巡目に立直をする'},
+  { name: 'chi-toitsu', char: '七対子', han: 2 , exp: '対子7組であがる'},
+  { name: 'renpuuhai', char: '連風牌', han: 2 , exp: '自風と場風が同じ時にその牌の刻子を揃える'},
+  { name: 'toitoi', char: '対々和', han: 2 , exp: '面子がすべて刻子(槓子も含む)'},
+  { name: 'san-ankou', char: '三暗刻', han: 2 , exp: '暗刻3組を含む'},
+  { name: 'sanshoku-doukou', char: '三色同刻', han: 2 , exp: '萬子、筒子、索子で同じ刻子を揃える'},
+  { name: 'sanshoku-doujun', char: '三色同順', han: 2 , exp: '萬子、筒子、索子で同じ順子を揃える'},
+  { name: 'honroutou', char: '混老頭', han: 2 , exp: '字牌と1・9牌のみで面子を揃える'},
+  { name: 'ikkitsu-kan', char: '一気通貫', han: 2 , exp: '123-456-789を同じ種類の牌で揃える'},
+  { name: 'chanta', char: '混全帯么九', han: 2 , exp: '面子と頭すべてに1・9杯もしくは字牌が含まれている'},
+  { name: 'shousangen', char: '小三元', han: 2 , exp: '白・發・中のいずれか１つを頭、他の２つを刻子か槓子で揃える'},
+  { name: 'sankantsu', char: '三槓子', han: 2 , exp: '槓子を3組揃える'},
+  { name: 'hon-i-so-', char: '混一色', han: 3 , exp: '萬子、筒子、索子の１種類と、字牌で揃える'},
+  { name: 'junchan', char: '純全帯么九', han: 3 , exp: '面子と頭すべて、1・9牌を含めて揃える'},
+  { name: 'ryanpe-ko-', char: '二盃口', han: 3 , exp: '一盃口を二組揃える'},
+  { name: 'chini-so-', char: '清一色', han: 6 , exp: '同じ種類の数牌のみで上がりの形を作る'},
+  { name: 'tenho-', char: '天和', han: 13 , exp: '親が配牌時に上がっている'},
+  { name: 'chi-ho-', char: '地和', han: 13 , exp: '子が鳴きのない第一巡の第一自摸で上がる'},
+  { name: 'renho-', char: '人和', han: 13 , exp: '鳴きのない第一巡に自身の自摸番までにロン上がりする'},
+  { name: 'ryu-i-so-', char: '緑一色', han: 13 , exp: '発と索子の2/3/4/6/8のみで揃える'},
+  { name: 'daisangen', char: '大三元', han: 13 , exp: '三元牌すべてを刻子(槓子もOK)のみで揃える'},
+  { name: 'shousu-si-', char: '小四喜', han: 13 , exp: '風牌一つを雀頭にし残りを暗刻で揃える'},
+  { name: 'tsu-i-so-', char: '字一色', han: 13 , exp: '字牌のみで揃える'},
+  { name: 'kokushimusou', char: '國士無双', han: 13 , exp: '1・9・字牌の頭と、1・9・字牌を全種類揃える'},
+  { name: 'chu-renpo-to-', char: '九蓮宝燈', han: 13 , exp: '萬子、筒子、索子の1種類で、1・9を3つ、2～8を1つに1～9のいずれか1つを加えた形で揃える'},
+  { name: 'su-anko-', char: '四暗刻', han: 13 , exp: '4つの暗刻子(暗槓もOK)と雀頭'},
+  { name: 'chinroutou', char: '清老頭', han: 13 , exp: '1と9の数杯のみで面子を揃える'},
+  { name: 'su-kantsu', char: '四槓子', han: 13 , exp: '槓子4組と雀頭'},
+  { name: 'daisu-shi-', char: '大四喜', han: 13 , exp: '東南西北すべての刻子と雀頭'}
+])
+
