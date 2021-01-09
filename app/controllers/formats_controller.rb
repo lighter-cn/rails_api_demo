@@ -24,4 +24,18 @@ class FormatsController < ApplicationController
     render json: @format
   end
 
+  def han
+    formats = Format.where(han: params[:id])
+    @formats = [];
+    formats.each do |format|
+      @formats << {
+        name: format.name,
+        char: format.char,
+        han: format.han,
+        exp: format.exp
+      }
+    end
+    render json: @formats
+  end
+
 end
