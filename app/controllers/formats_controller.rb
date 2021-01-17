@@ -3,12 +3,7 @@ class FormatsController < ApplicationController
     formats = Format.all
     @formats = [];
     formats.each do |format|
-      @formats << {
-        name: format.name,
-        char: format.char,
-        han: format.han,
-        exp: format.exp
-      }
+      @formats << format.adjust
     end
     render json: @formats
   end
@@ -16,12 +11,7 @@ class FormatsController < ApplicationController
   def show
     begin
       format = Format.find(params[:id])
-      @format = {
-        name: format.name,
-        char: format.char,
-        han: format.han,
-        exp: format.exp
-      }
+      @format = format.adjust
       render json: @format
     rescue => e
       render_error(e)
@@ -29,20 +19,14 @@ class FormatsController < ApplicationController
   end
 
   def han
-    # 検索値無いときのerror
     begin
-      formats = Format.where(han: params[:id])
+      formats = Format.where("han = ?",params[:id])
       if formats == []
         raise StandardError,'error message'
       end
       @formats = [];
       formats.each do |format|
-        @formats << {
-          name: format.name,
-          char: format.char,
-          han: format.han,
-          exp: format.exp
-        }
+        @formats << format.adjust
       end
       render json: @formats
     rescue => e
@@ -51,7 +35,6 @@ class FormatsController < ApplicationController
   end
 
   private
-
   def render_error(e)
     @error = e.message
     render json: @error
