@@ -1,10 +1,7 @@
 class FormatsController < ApplicationController
   def index
     formats = Format.all
-    @formats = [];
-    formats.each do |format|
-      @formats << format.adjust
-    end
+    @formats = some_adjust(formats)
     render json: @formats
   end
 
