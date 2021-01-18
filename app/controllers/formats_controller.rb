@@ -1,13 +1,15 @@
 class FormatsController < ApplicationController
   def index
     formats = Format.all
-    @formats = some_adjust(formats)
+    # 表示用に整形
+    @formats = some_adjust(formats) 
     render json: @formats
   end
 
   def show
     begin
       format = Format.find(params[:id])
+      # 表示用に整形
       @format = format.adjust
       render json: @format
     rescue => e
@@ -21,6 +23,7 @@ class FormatsController < ApplicationController
       if formats == []
         raise StandardError,'error message'
       end
+      # 表示用に整形
       @formats = some_adjust(formats)
       render json: @formats
     rescue => e
@@ -29,11 +32,13 @@ class FormatsController < ApplicationController
   end
 
   private
+  # errorを返す
   def render_error(e)
     @error = e.message
     render json: @error
   end
 
+  # フォーマットの整形
   def some_adjust(formats)
     new_array = [];
     formats.each do |format|
