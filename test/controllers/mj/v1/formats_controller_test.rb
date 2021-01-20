@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class FormatsControllerTest < ActionDispatch::IntegrationTest
+class Mj::V1::FormatsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
